@@ -37,7 +37,7 @@ const projects: ProjectEntry[] = [
       'Trained a multivariate linear regression model to predict nightly listing rates with high interpretability',
     ],
     technologies: ['Python', 'Pandas', 'Seaborn', 'Folium', 'Linear Regression', 'Scikit-Learn'],
-    image: 'https://yashsony.netlify.app/assets/images/Screenshot_1.png',
+    image: '/projects/airbnb_analytics.jpg',
     button: {
       url: 'https://github.com/yashsony24',
       text: 'View Code & Notebooks',
@@ -58,7 +58,7 @@ const projects: ProjectEntry[] = [
       'Delivered automated KPI executive summaries with interactive drill-downs and department-level filters',
     ],
     technologies: ['Power BI', 'DAX', 'Data Modeling', 'Business Intelligence', 'HR Telemetry'],
-    image: 'https://yashsony.netlify.app/assets/images/Screenshot_2.png',
+    image: '/projects/hr_dashboard.jpg',
     button: {
       url: 'https://github.com/yashsony24',
       text: 'Explore BI Implementation',
@@ -79,31 +79,31 @@ const projects: ProjectEntry[] = [
       'Formulated actionable recommendations for targeted membership loyalty tiers and discount incentives',
     ],
     technologies: ['SQL', 'MySQL', 'Relational Databases', 'Data Hygiene', 'Cohort Analysis'],
-    image: 'https://yashsony.netlify.app/assets/images/Screenshot_3.png',
+    image: '/projects/zomato_analytics.jpg',
     button: {
       url: 'https://github.com/yashsony24',
       text: 'Inspect SQL Queries',
     },
   },
   {
-    icon: Globe,
+    icon: Smartphone,
     number: '04',
-    title: 'E-Commerce & Custom Web Platforms',
-    subtitle: 'WordPress & PHP Architecture • Scalezix',
-    category: 'WordPress / PHP / E-Commerce',
+    title: 'Foodies — Online Food Delivery App',
+    subtitle: 'Mobile Engineering • Java & Kotlin',
+    category: 'Java / Kotlin / Android SDK',
     description:
-      'Engineered custom responsive WordPress templates and e-commerce shopping engines with production deployment pipelines.',
+      'Engineered an intuitive online food ordering and delivery application featuring interactive menus, real-time cart updates, and robust mobile architecture.',
     items: [
-      'Created custom WordPress templates tailored for responsive, fast-loading e-commerce storefronts',
-      'Developed PHP backend modules for checkout workflows, product catalogs, and database management',
-      'Configured end-to-end website deployment, domain DNS routing, and hosting environments',
-      'Built strong software engineering foundations understanding how web interactions pipe data to relational databases',
+      'Developed an intuitive online food ordering and delivery application featuring a clean, user-friendly UI designed to deliver a seamless user experience.',
+      'Implemented core app functionality including interactive menu browsing, real-time cart updates, smooth navigation, and order status tracking.',
+      'Leveraged Java and Kotlin to build responsive components, ensure robust data handling, and deliver optimized mobile performance.',
+      'Architected offline-capable local caching and reactive UI bindings to maximize user engagement and session speed.',
     ],
-    technologies: ['WordPress', 'PHP', 'E-commerce', 'WooCommerce', 'MySQL', 'Web Architecture'],
-    image: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=800&auto=format&fit=crop&q=80',
+    technologies: ['Java', 'Kotlin', 'Android Studio', 'State Management', 'RESTful APIs', 'Mobile Architecture'],
+    image: '/projects/foodies_app.jpg',
     button: {
       url: 'https://github.com/yashsony24',
-      text: 'Explore Web Architecture',
+      text: 'Explore Mobile Architecture',
     },
   },
 ];
@@ -154,7 +154,7 @@ export default function ProjectShowcase() {
 
   // Stable scroll synchronization: only runs when user is NOT hovering over a card
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout | null = null;
+    let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
 
     const handleScroll = () => {
       // If user's mouse is anywhere over a project card, do NOT let scroll override it!
@@ -250,7 +250,6 @@ export default function ProjectShowcase() {
               key={entry.number}
               ref={(el) => setItemRef(el, index)}
               onMouseEnter={() => handleCardActivate(index)}
-              onMouseMove={() => handleCardActivate(index)}
               onClick={() => handleCardActivate(index)}
               aria-current={isActive ? 'true' : 'false'}
               className="group relative flex flex-col gap-5 md:flex-row md:gap-14 items-start cursor-pointer"
@@ -297,7 +296,7 @@ export default function ProjectShowcase() {
                     <img
                       src={entry.image}
                       alt={`${entry.title} visual`}
-                      className={`w-full h-full object-cover object-top transition-transform duration-700 ${isActive ? 'scale-[1.02]' : 'group-hover:scale-[1.02]'}`}
+                      className={`w-full h-full object-cover object-center transition-transform duration-700 ${isActive ? 'scale-[1.02]' : 'group-hover:scale-[1.02]'}`}
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60 pointer-events-none" />
